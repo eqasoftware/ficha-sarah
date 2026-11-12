@@ -1,0 +1,3169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ficha Sarah Ariane — Glúteo & Força</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png" />
+  <meta name="theme-color" content="#09070d" />
+  <meta name="application-name" content="Ficha Sarah" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Ficha Sarah" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="./icons/icon-180.png" />
+  <link rel="apple-touch-icon" href="./icons/icon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09070d;
+      --surface: rgba(19, 16, 26, 0.74);
+      --surface-strong: rgba(22, 18, 30, 0.92);
+      --surface2: rgba(28, 22, 38, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --accent: #e040fb;
+      --accent2: #f48fb1;
+      --accent3: #ce93d8;
+      --text: #f4edf7;
+      --muted: #a18cae;
+      --muted-2: #7f6d8d;
+      --glow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 18% 16%, rgba(224, 64, 251, 0.18), transparent 26%),
+        radial-gradient(circle at 84% 10%, rgba(244, 143, 177, 0.14), transparent 22%),
+        radial-gradient(circle at 50% 110%, rgba(206, 147, 216, 0.12), transparent 28%),
+        linear-gradient(180deg, #0a0810 0%, #110d17 40%, #09070d 100%);
+      position: relative;
+    }
+
+    body.is-booting {
+      overflow: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: .45;
+      mix-blend-mode: soft-light;
+    }
+
+    body::after {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(224, 64, 251, .10), transparent 16%),
+        radial-gradient(circle at 78% 8%, rgba(244, 143, 177, .08), transparent 16%);
+      filter: blur(60px);
+      animation: glowFloat 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowFloat {
+      from {
+        transform: translateY(0) scale(1);
+      }
+
+      to {
+        transform: translateY(16px) scale(1.04);
+      }
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+    }
+
+    .boot-splash {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 50% 22%, rgba(224, 64, 251, .18), transparent 24%),
+        radial-gradient(circle at 50% 78%, rgba(244, 143, 177, .14), transparent 28%),
+        linear-gradient(180deg, rgba(10, 8, 16, .98), rgba(17, 13, 23, .98));
+      transition: opacity .45s ease, visibility .45s ease;
+    }
+
+    .boot-splash.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .boot-card {
+      width: min(100%, 360px);
+      padding: 28px 24px 22px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .025));
+      backdrop-filter: blur(18px);
+      text-align: center;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .35);
+    }
+
+    .boot-icon-wrap {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 18px;
+    }
+
+    .boot-icon-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border-radius: 28px;
+      border: 1px solid rgba(224, 64, 251, .24);
+      animation: splashPulse 1.8s ease-out infinite;
+    }
+
+    .boot-icon {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 24px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .32);
+    }
+
+    .boot-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 10px;
+    }
+
+    .boot-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 7vw, 52px);
+      line-height: .95;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .boot-copy {
+      color: #d7cada;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .boot-progress {
+      position: relative;
+      height: 6px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .boot-progress::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform-origin: left center;
+      animation: splashLoad 1.15s ease-in-out infinite;
+    }
+
+    @keyframes splashPulse {
+      0% {
+        opacity: .8;
+        transform: scale(.95);
+      }
+
+      70% {
+        opacity: 0;
+        transform: scale(1.14);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.14);
+      }
+    }
+
+    @keyframes splashLoad {
+      0% {
+        transform: scaleX(.15);
+        opacity: .65;
+      }
+
+      55% {
+        transform: scaleX(.82);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scaleX(1);
+        opacity: .82;
+      }
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero-wrap {
+      padding: 24px 0 16px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      padding: 76px 42px 40px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .02));
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--glow);
+      transform-style: preserve-3d;
+      transition: transform .18s ease-out;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(224, 64, 251, .42), rgba(255, 255, 255, .05), rgba(244, 143, 177, .38));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: -1;
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      right: -10px;
+      bottom: -20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(100px, 14vw, 180px);
+      color: rgba(255, 255, 255, 0.04);
+      letter-spacing: 6px;
+      pointer-events: none;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 28px;
+      align-items: end;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(224, 64, 251, .18), rgba(244, 143, 177, .16));
+      border: 1px solid rgba(224, 64, 251, .18);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 24px;
+      width: fit-content;
+    }
+
+    .badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, .5);
+      animation: pulseDot 2.1s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, .35);
+      }
+
+      70% {
+        box-shadow: 0 0 0 14px rgba(255, 255, 255, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(58px, 10vw, 114px);
+      line-height: .9;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+
+    h1 span {
+      color: var(--accent);
+      text-shadow: 0 0 22px rgba(224, 64, 251, .14);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: #c9b9d4;
+      font-style: italic;
+      margin-bottom: 28px;
+      line-height: 1.8;
+      max-width: 620px;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-card {
+      padding: 18px 20px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .03);
+      backdrop-filter: blur(10px);
+      transition: transform .32s ease, border-color .32s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(244, 143, 177, .2);
+    }
+
+    .hero-card-label,
+    .meta-label,
+    .tab-day,
+    .stat-label,
+    .block-label,
+    .tip-title,
+    .section-divider {
+      font-family: 'DM Mono', monospace;
+    }
+
+    .hero-card-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .hero-card-value {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .meta-item {
+      padding: 18px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .025);
+      transition: transform .3s ease, border-color .3s ease;
+    }
+
+    .meta-item:hover {
+      transform: translateY(-3px);
+      border-color: rgba(224, 64, 251, .18);
+    }
+
+    .meta-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .meta-value {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .sticky-nav-wrap {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      padding-top: 14px;
+    }
+
+    .week-nav {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      padding: 10px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: rgba(14, 11, 18, .76);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .28);
+    }
+
+    .day-tab {
+      position: relative;
+      border: 1px solid transparent;
+      background: transparent;
+      color: inherit;
+      padding: 16px 16px 14px;
+      border-radius: 18px;
+      cursor: pointer;
+      text-align: left;
+      min-height: 106px;
+      transition: transform .28s ease, border-color .28s ease, background .28s ease;
+      overflow: hidden;
+    }
+
+    .day-tab::before {
+      content: '';
+      position: absolute;
+      inset: auto -20% -50% -20%;
+      height: 90px;
+      background: radial-gradient(circle, rgba(255, 255, 255, .08), transparent 70%);
+      opacity: 0;
+      transition: opacity .3s ease;
+      pointer-events: none;
+    }
+
+    .day-tab:hover,
+    .day-tab.active {
+      background: rgba(255, 255, 255, .04);
+      border-color: rgba(255, 255, 255, .08);
+      transform: translateY(-3px);
+    }
+
+    .day-tab:hover::before,
+    .day-tab.active::before {
+      opacity: 1;
+    }
+
+    .day-tab.active {
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .02);
+    }
+
+    .day-tab.rest-tab.active {
+      border-color: rgba(255, 255, 255, .12);
+    }
+
+    .tab-day {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .tab-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 21px;
+      line-height: 1;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .tab-type,
+    .ex-tag,
+    .ex-note,
+    .ex-sets,
+    .cardio-detail {
+      font-family: 'DM Mono', monospace;
+    }
+
+    .tab-type {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      font-weight: 700;
+    }
+
+    .tag-gluteo {
+      background: rgba(224, 64, 251, .14);
+      color: var(--accent);
+      border-color: rgba(224, 64, 251, .12);
+    }
+
+    .tag-costas {
+      background: rgba(244, 143, 177, .14);
+      color: var(--accent2);
+      border-color: rgba(244, 143, 177, .12);
+    }
+
+    .tag-quad {
+      background: rgba(206, 147, 216, .16);
+      color: var(--accent3);
+      border-color: rgba(206, 147, 216, .12);
+    }
+
+    .tag-upper {
+      background: rgba(224, 64, 251, .1);
+      color: var(--accent);
+      border-color: rgba(224, 64, 251, .08);
+    }
+
+    .tag-pump {
+      background: rgba(244, 143, 177, .18);
+      color: var(--accent2);
+      border-color: rgba(244, 143, 177, .12);
+    }
+
+    .tag-rest {
+      background: rgba(255, 255, 255, .05);
+      color: var(--muted);
+      border-color: rgba(255, 255, 255, .08);
+    }
+
+    .content {
+      padding: 26px 0 58px;
+    }
+
+    .day-panel {
+      display: none;
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .day-panel.active {
+      display: block;
+      animation: panelIn .5s cubic-bezier(.22, .61, .36, 1) forwards;
+    }
+
+    @keyframes panelIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .day-shell {
+      border-radius: 30px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .018));
+      backdrop-filter: blur(18px);
+      box-shadow: var(--glow);
+    }
+
+    .day-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .day-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 6vw, 66px);
+      letter-spacing: 2px;
+      line-height: .95;
+    }
+
+    .day-title em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .day-title.costas em {
+      color: var(--accent2);
+    }
+
+    .day-title.quad em {
+      color: var(--accent3);
+    }
+
+    .day-title.upper em {
+      color: var(--accent);
+    }
+
+    .day-title.pump em {
+      color: var(--accent2);
+    }
+
+    .day-subtitle {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+      max-width: 720px;
+    }
+
+    .day-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(90px, 1fr));
+      gap: 12px;
+    }
+
+    .stat-box {
+      min-width: 92px;
+      padding: 14px 18px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .03);
+      text-align: center;
+      transition: transform .3s ease, border-color .3s ease;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, .12);
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    .block {
+      margin-bottom: 20px;
+      border-radius: 24px;
+      padding: 20px 22px 10px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .02);
+      transition: transform .28s ease, border-color .28s ease;
+    }
+
+    .block:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .1);
+    }
+
+    .block-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      margin-bottom: 6px;
+    }
+
+    .block-label::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 16px rgba(224, 64, 251, .26);
+      flex-shrink: 0;
+    }
+
+    .block.costas .block-label::before {
+      background: var(--accent2);
+      box-shadow: 0 0 16px rgba(244, 143, 177, .22);
+    }
+
+    .block.quad .block-label::before {
+      background: var(--accent3);
+      box-shadow: 0 0 16px rgba(206, 147, 216, .18);
+    }
+
+    .block.neutral .block-label::before {
+      background: var(--muted);
+      box-shadow: none;
+    }
+
+    .block.pump .block-label::before {
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+    }
+
+    .exercise {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 16px;
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+      transition: transform .22s ease, padding-left .22s ease, border-color .22s ease;
+      cursor: pointer;
+    }
+
+    .exercise:last-child {
+      border-bottom: none;
+    }
+
+    .exercise:hover {
+      transform: translateX(4px);
+      padding-left: 4px;
+    }
+
+    .exercise:focus-visible {
+      outline: none;
+      border-bottom-color: rgba(255, 255, 255, .12);
+    }
+
+    .exercise::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 50%;
+      transform: translateY(-50%) scaleX(0);
+      transform-origin: left center;
+      width: 3px;
+      height: calc(100% - 10px);
+      border-radius: 999px;
+      background: var(--accent);
+      opacity: .75;
+      transition: transform .25s ease;
+    }
+
+    .exercise:hover::before {
+      transform: translateY(-50%) scaleX(1);
+    }
+
+    .exercise.costas::before {
+      background: var(--accent2);
+    }
+
+    .exercise.quad::before {
+      background: var(--accent3);
+    }
+
+    .exercise.pump::before {
+      background: var(--accent2);
+    }
+
+    .exercise.neutral::before {
+      background: rgba(255, 255, 255, .2);
+    }
+
+    .exercise:hover .ex-name {
+      color: var(--accent);
+    }
+
+    .exercise.costas:hover .ex-name,
+    .exercise.pump:hover .ex-name {
+      color: var(--accent2);
+    }
+
+    .exercise.quad:hover .ex-name {
+      color: var(--accent3);
+    }
+
+    .ex-name {
+      font-size: 15px;
+      font-weight: 600;
+      transition: color .16s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      line-height: 1.5;
+    }
+
+    .ex-tag,
+    .ex-note {
+      font-size: 10px;
+      letter-spacing: 1px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .ex-tag {
+      color: var(--muted);
+      background: var(--surface2);
+      border: 1px solid rgba(255, 255, 255, .05);
+    }
+
+    .ex-note {
+      color: var(--accent);
+      background: rgba(224, 64, 251, .1);
+      border: 1px solid rgba(224, 64, 251, .08);
+    }
+
+    .ex-note.pink {
+      color: var(--accent2);
+      background: rgba(244, 143, 177, .11);
+      border-color: rgba(244, 143, 177, .08);
+    }
+
+    .ex-sets {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .05);
+    }
+
+    .ex-reps {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 1px;
+      min-width: 78px;
+      text-align: right;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .exercise.costas .ex-reps,
+    .exercise.pump .ex-reps {
+      color: var(--accent2);
+    }
+
+    .exercise.quad .ex-reps {
+      color: var(--accent3);
+    }
+
+    .exercise.neutral .ex-reps {
+      color: var(--muted);
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .tip {
+      position: relative;
+      overflow: hidden;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, .025);
+      transition: transform .3s ease, border-color .3s ease;
+    }
+
+    .tip::after {
+      content: '';
+      position: absolute;
+      inset: auto -20% -70% auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(224, 64, 251, .12), transparent 65%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .tip:hover {
+      transform: translateY(-4px);
+      border-color: rgba(224, 64, 251, .18);
+    }
+
+    .tip-icon {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .tip-title {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .tip p {
+      font-size: 13px;
+      color: #cab8d5;
+      line-height: 1.75;
+    }
+
+    .rest-panel {
+      min-height: 400px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 40px 24px;
+      border-radius: 24px;
+      border: 1px dashed rgba(255, 255, 255, .10);
+      background: radial-gradient(circle at top, rgba(255, 255, 255, .03), transparent 60%);
+    }
+
+    .rest-orb {
+      width: 98px;
+      height: 98px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03));
+      border: 1px solid rgba(255, 255, 255, .08);
+      font-size: 40px;
+      margin-bottom: 18px;
+      animation: floatRest 4s ease-in-out infinite;
+    }
+
+    @keyframes floatRest {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .rest-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 7vw, 58px);
+      letter-spacing: 4px;
+      color: #d7cada;
+      margin-bottom: 10px;
+    }
+
+    .rest-sub {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .overload-box {
+      margin-top: 26px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .03), rgba(255, 255, 255, .015));
+      box-shadow: var(--glow);
+    }
+
+    .overload-header {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 3px;
+      padding: 16px 24px;
+    }
+
+    .overload-body {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .overload-item {
+      background: rgba(14, 11, 18, .78);
+      padding: 22px;
+      transition: transform .28s ease, background .28s ease;
+    }
+
+    .overload-item:hover {
+      transform: translateY(-4px);
+      background: rgba(20, 16, 26, .94);
+    }
+
+    .overload-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .overload-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      text-align: center;
+      color: var(--muted-2);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .ex-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(6, 4, 10, .72);
+      backdrop-filter: blur(12px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .28s ease;
+    }
+
+    .ex-modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .ex-modal {
+      position: relative;
+      width: min(100%, 760px);
+      max-height: min(88vh, 860px);
+      overflow: auto;
+      padding: 10px 22px 48px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: linear-gradient(180deg, rgba(15, 12, 20, .98), rgba(12, 9, 18, .98));
+      box-shadow: 0 26px 80px rgba(0, 0, 0, .46);
+      transform: translateY(22px);
+      transition: transform .28s ease;
+    }
+
+    .ex-modal-overlay.open .ex-modal {
+      transform: translateY(0);
+    }
+
+    .ex-modal-handle {
+      width: 44px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .12);
+      margin: 10px auto 18px;
+    }
+
+    .ex-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255, 255, 255, .05);
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .ex-modal-close:hover {
+      background: rgba(255, 255, 255, .13);
+      color: var(--text);
+      transform: rotate(90deg);
+    }
+
+    .ex-modal-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 6vw, 64px);
+      line-height: .92;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      padding-right: 44px;
+    }
+
+    .ex-modal-name.accent {
+      color: var(--accent);
+    }
+
+    .ex-modal-name.accent2 {
+      color: var(--accent2);
+    }
+
+    .ex-modal-name.accent3 {
+      color: var(--accent3);
+    }
+
+    .ex-modal-name.neutral {
+      color: var(--text);
+    }
+
+    .ex-modal-muscles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .ex-muscle-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(224, 64, 251, .12);
+      border: 1px solid rgba(224, 64, 251, .22);
+      color: #f4c4ff;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .ex-muscle-tag.secondary {
+      background: rgba(255, 255, 255, .04);
+      border-color: rgba(255, 255, 255, .08);
+      color: var(--muted);
+    }
+
+    .ex-modal-section {
+      margin-bottom: 22px;
+    }
+
+    .ex-section-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 12px;
+    }
+
+    .ex-cues,
+    .ex-mistakes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ex-cue {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, .07);
+      background: rgba(255, 255, 255, .04);
+      color: #eadcf0;
+      line-height: 1.7;
+    }
+
+    .ex-cue-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 30px;
+      line-height: .9;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .ex-mistake {
+      position: relative;
+      padding: 14px 16px 14px 40px;
+      border-radius: 18px;
+      border: 1px solid rgba(244, 143, 177, .12);
+      background: rgba(244, 143, 177, .08);
+      color: #dfc0cb;
+      line-height: 1.7;
+    }
+
+    .ex-mistake::before {
+      content: '×';
+      position: absolute;
+      top: 13px;
+      left: 16px;
+      color: #ff8cab;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .ex-modal-actions {
+      margin-top: 30px;
+    }
+
+    .ex-yt-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(224, 64, 251, .2);
+      background: linear-gradient(135deg, rgba(224, 64, 251, .16), rgba(244, 143, 177, .14));
+      color: #ffeefe;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .ex-yt-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(244, 143, 177, .28);
+      background: linear-gradient(135deg, rgba(224, 64, 251, .24), rgba(244, 143, 177, .18));
+    }
+
+    @media (max-width: 1100px) {
+
+      .hero-grid,
+      .hero-meta,
+      .overload-body,
+      .tips-grid,
+      .week-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .day-tab:last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        padding: 56px 24px 26px;
+      }
+
+      .hero-bg-text {
+        display: none;
+      }
+
+      .hero-grid,
+      .hero-meta,
+      .hero-side,
+      .tips-grid,
+      .overload-body,
+      .week-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .day-tab:last-child {
+        grid-column: auto;
+      }
+
+      .day-shell {
+        padding: 22px 16px;
+        border-radius: 24px;
+      }
+
+      .sticky-nav-wrap {
+        position: static;
+      }
+
+      .day-header {
+        align-items: stretch;
+      }
+
+      .day-stats {
+        width: 100%;
+      }
+
+      .exercise {
+        grid-template-columns: 1fr auto;
+      }
+
+      .ex-sets {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max-width), calc(100% - 14px));
+      }
+
+      .hero-wrap {
+        padding-top: 8px;
+      }
+
+      .hero {
+        padding: 34px 16px 18px;
+        border-radius: 20px;
+        transform: none !important;
+      }
+
+      .badge {
+        margin-bottom: 18px;
+        font-size: 10px;
+        letter-spacing: 1.4px;
+        padding: 7px 12px;
+      }
+
+      h1 {
+        font-size: clamp(48px, 18vw, 74px);
+        margin-bottom: 10px;
+      }
+
+      .hero-sub {
+        font-size: 13px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+      }
+
+      .hero-card,
+      .meta-item,
+      .tip,
+      .overload-item {
+        padding: 16px;
+        border-radius: 16px;
+      }
+
+      .hero-card-value,
+      .meta-value {
+        font-size: 14px;
+      }
+
+      .sticky-nav-wrap {
+        position: static;
+        padding-top: 10px;
+      }
+
+      .week-nav {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 8px;
+        border-radius: 16px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .week-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .day-tab {
+        flex: 0 0 78%;
+        min-height: unset;
+        padding: 14px;
+        border-radius: 14px;
+        scroll-snap-align: start;
+      }
+
+      .tab-day {
+        font-size: 9px;
+        margin-bottom: 6px;
+      }
+
+      .tab-name {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+
+      .tab-type {
+        font-size: 9px;
+        padding: 5px 9px;
+      }
+
+      .content {
+        padding: 16px 0 40px;
+      }
+
+      .day-shell {
+        padding: 16px 12px;
+        border-radius: 18px;
+      }
+
+      .day-header {
+        margin-bottom: 18px;
+        gap: 14px;
+      }
+
+      .day-title {
+        font-size: clamp(30px, 11vw, 42px);
+        letter-spacing: 1px;
+      }
+
+      .day-subtitle {
+        font-size: 12px;
+        line-height: 1.65;
+      }
+
+      .day-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .stat-box {
+        min-width: 0;
+        padding: 12px 8px;
+        border-radius: 14px;
+      }
+
+      .stat-num {
+        font-size: 26px;
+      }
+
+      .stat-label {
+        font-size: 8px;
+        letter-spacing: 1px;
+      }
+
+      .block {
+        padding: 16px 14px 8px;
+        border-radius: 18px;
+      }
+
+      .block-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+        gap: 8px;
+        padding-bottom: 12px;
+      }
+
+      .block-label::before {
+        width: 18px;
+      }
+
+      .exercise {
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        padding: 14px 0;
+      }
+
+      .exercise::before {
+        left: -8px;
+      }
+
+      .ex-name {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 14px;
+        line-height: 1.45;
+        padding-right: 4px;
+      }
+
+      .ex-tag,
+      .ex-note {
+        font-size: 9px;
+        padding: 4px 8px;
+      }
+
+      .ex-reps {
+        min-width: 54px;
+        font-size: 20px;
+      }
+
+      .tip p,
+      .overload-desc,
+      .rest-sub,
+      .footer-note {
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .tip-title {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+      }
+
+      .overload-header {
+        padding: 14px 16px;
+        font-size: 16px;
+        line-height: 1.2;
+        letter-spacing: 2px;
+      }
+
+      .overload-num {
+        font-size: 30px;
+      }
+
+      .rest-panel {
+        min-height: 300px;
+        padding: 26px 18px;
+        border-radius: 18px;
+      }
+
+      .rest-orb {
+        width: 84px;
+        height: 84px;
+        font-size: 34px;
+      }
+
+      .rest-title {
+        font-size: clamp(34px, 12vw, 46px);
+        letter-spacing: 2px;
+      }
+
+      .ex-modal {
+        width: calc(100% - 8px);
+        max-height: min(92vh, 860px);
+        padding: 8px 18px 44px;
+        border-radius: 24px;
+      }
+
+      .ex-modal-name {
+        font-size: clamp(36px, 12vw, 52px);
+      }
+
+      .ex-cue,
+      .ex-mistake {
+        font-size: 13px;
+      }
+
+      .ex-cue {
+        grid-template-columns: 28px 1fr;
+        padding: 12px 14px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .day-tab {
+        flex-basis: 86%;
+      }
+
+      .day-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-box {
+        text-align: left;
+      }
+
+      .exercise {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .ex-reps {
+        text-align: left;
+        min-width: 0;
+      }
+
+      .block,
+      .tip,
+      .overload-item,
+      .hero-card,
+      .meta-item {
+        padding: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .day-panel {
+        opacity: 1;
+        transform: none;
+      }
+
+      .hero {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="is-booting">
+  <div class="boot-splash" id="bootSplash" aria-hidden="true">
+    <div class="boot-card">
+      <div class="boot-icon-wrap">
+        <img class="boot-icon" src="./icons/icon-192.png" alt="Ficha Sarah" />
+      </div>
+      <div class="boot-label">App pronta para instalar</div>
+      <div class="boot-title">Ficha Sarah</div>
+      <p class="boot-copy">Abrindo sua ficha com atalho, icone proprio e suporte offline basico.</p>
+      <div class="boot-progress"></div>
+    </div>
+  </div>
+  <div class="app">
+    <div class="container hero-wrap">
+      <header class="hero reveal">
+        <div class="hero-grid">
+          <div>
+            <div class="badge">Ficha Sarah Ariane</div>
+            <h1>GLÚTEO &<br><span>FORÇA</span></h1>
+            <p class="hero-sub">Dupla frequência de glúteo, corpo completo, visual modernizado, microinterações suaves e
+              navegação melhor pensada para mobile.</p>
+          </div>
+
+          <div class="hero-side">
+            <div class="hero-card">
+              <div class="hero-card-label">Foco principal</div>
+              <div class="hero-card-value">Glúteo + Posterior com força e pump bem separados</div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-label">Estratégia</div>
+              <div class="hero-card-value">5 treinos por semana com progressão simples e recuperação melhor distribuída
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-item"><span class="meta-label">Foco</span><span class="meta-value">Glúteo + Posterior</span>
+          </div>
+          <div class="meta-item"><span class="meta-label">Split</span><span class="meta-value">5× / semana</span></div>
+          <div class="meta-item"><span class="meta-label">Freq. Glúteo</span><span class="meta-value">2× / semana</span>
+          </div>
+          <div class="meta-item"><span class="meta-label">Metodologia</span><span class="meta-value">Força +
+              Volume/Pump</span></div>
+        </div>
+
+        <div class="hero-bg-text">SARAH</div>
+      </header>
+    </div>
+
+    <div class="container sticky-nav-wrap">
+      <nav class="week-nav reveal" aria-label="Treinos da semana">
+        <button class="day-tab active" data-day="seg" type="button">
+          <div class="tab-day">Segunda</div>
+          <div class="tab-name">Glúteo<br>Força</div>
+          <span class="tab-type tag-gluteo">Neural</span>
+        </button>
+        <button class="day-tab" data-day="ter" type="button">
+          <div class="tab-day">Terça</div>
+          <div class="tab-name">Costas<br>+ Bíceps</div>
+          <span class="tab-type tag-costas">Volume</span>
+        </button>
+        <button class="day-tab" data-day="qua" type="button">
+          <div class="tab-day">Quarta</div>
+          <div class="tab-name">Quad<br>+ Glúteo</div>
+          <span class="tab-type tag-quad">Força/Vol</span>
+        </button>
+        <button class="day-tab" data-day="qui" type="button">
+          <div class="tab-day">Quinta</div>
+          <div class="tab-name">Upper<br>Completo</div>
+          <span class="tab-type tag-upper">Volume</span>
+        </button>
+        <button class="day-tab" data-day="sex" type="button">
+          <div class="tab-day">Sexta</div>
+          <div class="tab-name">Glúteo<br>Pump</div>
+          <span class="tab-type tag-pump">Pump</span>
+        </button>
+        <button class="day-tab rest-tab" data-day="fds" type="button">
+          <div class="tab-day">Sáb + Dom</div>
+          <div class="tab-name">Descanso<br>Total</div>
+          <span class="tab-type tag-rest">Rest</span>
+        </button>
+      </nav>
+    </div>
+
+    <main class="container content">
+      <section class="day-panel active" id="seg">
+        <div class="day-shell reveal">
+          <div class="day-header">
+            <div>
+              <div class="day-title">GLÚTEO <em>FORÇA</em></div>
+              <p class="day-subtitle">Dia de tensão máxima, glúteo dominante, posterior forte e descanso suficiente para
+                realmente render.</p>
+            </div>
+            <div class="day-stats">
+              <div class="stat-box">
+                <div class="stat-num" data-target="24">24</div>
+                <div class="stat-label">Séries</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num">6–10</div>
+                <div class="stat-label">Rep range</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num">2–3</div>
+                <div class="stat-label">Min descanso</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block reveal">
+            <div class="block-label">Glúteo — Tensão Máxima</div>
+            <div class="exercise">
+              <div class="ex-name">Hip Thrust com Barra <span class="ex-tag">principal</span> <span
+                  class="ex-note">segura 1s no topo</span></div>
+              <div class="ex-sets">5 séries</div>
+              <div class="ex-reps">5–8</div>
+            </div>
+            <div class="exercise">
+              <div class="ex-name">Glute Bridge na Máquina <span class="ex-tag">acessório</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">8–10</div>
+            </div>
+            <div class="exercise">
+              <div class="ex-name">Abdutora com Carga Alta <span class="ex-tag">glúteo médio</span> <span
+                  class="ex-note">segura 2s</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">12–15</div>
+            </div>
+          </div>
+
+          <div class="block reveal">
+            <div class="block-label">Posterior de Coxa</div>
+            <div class="exercise">
+              <div class="ex-name">Levantamento Terra Sumô <span class="ex-tag">principal</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">5–7</div>
+            </div>
+            <div class="exercise">
+              <div class="ex-name">Stiff com Barra <span class="ex-tag">isquio + glúteo</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">8–10</div>
+            </div>
+            <div class="exercise">
+              <div class="ex-name">Mesa Flexora <span class="ex-tag">isolamento</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">10–12</div>
+            </div>
+          </div>
+
+          <div class="block neutral reveal">
+            <div class="block-label">Core — Estabilização</div>
+            <div class="exercise neutral">
+              <div class="ex-name">Prancha com Carga <span class="ex-tag">core anti-extensão</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">30–45s</div>
+            </div>
+          </div>
+
+          <div class="tips-grid">
+            <div class="tip reveal">
+              <div class="tip-icon">🔥</div>
+              <div class="tip-title">Hip Thrust</div>
+              <p>Joelho em 90°, calcanhar firme no chão e pausa real no topo. Glúteo sobe, lombar não rouba.</p>
+            </div>
+            <div class="tip reveal">
+              <div class="tip-icon">⚡</div>
+              <div class="tip-title">Sumô</div>
+              <p>Joelhos empurrando para fora o tempo todo melhoram muito a participação do glúteo médio.</p>
+            </div>
+            <div class="tip reveal">
+              <div class="tip-icon">⏱</div>
+              <div class="tip-title">Descanso</div>
+              <p>Esse é dia de força, então não apresse as pausas nos exercícios mais pesados.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="day-panel" id="ter">
+        <div class="day-shell reveal">
+          <div class="day-header">
+            <div>
+              <div class="day-title costas">COSTAS <em>+ BÍCEPS</em></div>
+              <p class="day-subtitle">Costas bem distribuídas entre largura e espessura, com bíceps enxuto e mais
+                inteligente.</p>
+            </div>
+            <div class="day-stats">
+              <div class="stat-box">
+                <div class="stat-num" style="color:var(--accent2)" data-target="26">26</div>
+                <div class="stat-label">Séries</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num" style="color:var(--accent2)">8–12</div>
+                <div class="stat-label">Rep range</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num" style="color:var(--accent2)">90s–2</div>
+                <div class="stat-label">Min descanso</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block costas reveal">
+            <div class="block-label">Costas — Largura</div>
+            <div class="exercise costas">
+              <div class="ex-name">Pulldown Pegada Larga <span class="ex-tag">grande dorsal</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">8–10</div>
+            </div>
+            <div class="exercise costas">
+              <div class="ex-name">Pulldown Unilateral no Cabo <span class="ex-tag">unilateral</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">10–12</div>
+            </div>
+          </div>
+
+          <div class="block costas reveal">
+            <div class="block-label">Costas — Espessura</div>
+            <div class="exercise costas">
+              <div class="ex-name">Remada Curvada com Barra <span class="ex-tag">principal</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">6–8</div>
+            </div>
+            <div class="exercise costas">
+              <div class="ex-name">Remada Sentada no Cabo <span class="ex-tag">volume</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">10–12</div>
+            </div>
+            <div class="exercise costas">
+              <div class="ex-name">Remada Unilateral com Halter <span class="ex-tag">unilateral</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">10–12</div>
+            </div>
+          </div>
+
+          <div class="block costas reveal">
+            <div class="block-label">Bíceps — 2 exercícios suficientes</div>
+            <div class="exercise costas">
+              <div class="ex-name">Rosca Direta com Barra <span class="ex-tag">massa</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">8–10</div>
+            </div>
+            <div class="exercise costas">
+              <div class="ex-name">Rosca Martelo Alternada <span class="ex-tag">braquial</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">10–12</div>
+            </div>
+          </div>
+
+          <div class="tips-grid">
+            <div class="tip reveal">
+              <div class="tip-icon">✂️</div>
+              <div class="tip-title">Bíceps reduzido</div>
+              <p>Dois exercícios bons aqui já entregam mais qualidade e menos fadiga desnecessária.</p>
+            </div>
+            <div class="tip reveal">
+              <div class="tip-icon">🔗</div>
+              <div class="tip-title">Escápula</div>
+              <p>Organize a escápula antes de cada puxada para isolar melhor o dorsal.</p>
+            </div>
+            <div class="tip reveal">
+              <div class="tip-icon">📈</div>
+              <div class="tip-title">Progressão</div>
+              <p>Se quiser escolher um lift-chave do dia, foque na remada curvada.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="day-panel" id="qua">
+        <div class="day-shell reveal">
+          <div class="day-header">
+            <div>
+              <div class="day-title quad">QUAD <em>+ GLÚTEO</em></div>
+              <p class="day-subtitle">Quadríceps forte, glúteo unilateral e um blend muito bom de força com volume.</p>
+            </div>
+            <div class="day-stats">
+              <div class="stat-box">
+                <div class="stat-num" style="color:var(--accent3)" data-target="26">26</div>
+                <div class="stat-label">Séries</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num" style="color:var(--accent3)">6–15</div>
+                <div class="stat-label">Rep range</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num" style="color:var(--accent3)">2–3</div>
+                <div class="stat-label">Min descanso</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block quad reveal">
+            <div class="block-label">Quadríceps — Força Base</div>
+            <div class="exercise quad">
+              <div class="ex-name">Agachamento Livre com Barra <span class="ex-tag">principal</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">5–8</div>
+            </div>
+            <div class="exercise quad">
+              <div class="ex-name">Leg Press (Pé Neutro) <span class="ex-tag">volume</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">10–12</div>
+            </div>
+            <div class="exercise quad">
+              <div class="ex-name">Cadeira Extensora <span class="ex-tag">isolamento</span> <span
+                  class="ex-note pink">drop set na última</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">12–15</div>
+            </div>
+          </div>
+
+          <div class="block quad reveal">
+            <div class="block-label">Glúteo — Unilateral</div>
+            <div class="exercise quad">
+              <div class="ex-name">Agachamento Búlgaro com Barra <span class="ex-tag">força uni</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">8–10</div>
+            </div>
+            <div class="exercise quad">
+              <div class="ex-name">Coice no Cabo (Glúteo Máximo) <span class="ex-tag">isolamento</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">12–15</div>
+            </div>
+          </div>
+
+          <div class="block neutral reveal">
+            <div class="block-label">Panturrilha</div>
+            <div class="exercise neutral">
+              <div class="ex-name">Panturrilha em Pé (Carga Alta) <span class="ex-tag">gastrocnêmio</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">10–15</div>
+            </div>
+          </div>
+
+          <div class="tips-grid">
+            <div class="tip reveal">
+              <div class="tip-icon">🏋️</div>
+              <div class="tip-title">Agachamento</div>
+              <p>Desça controlando e ganhe profundidade real para aproveitar mais quadríceps e glúteo.</p>
+            </div>
+            <div class="tip reveal">
+              <div class="tip-icon">🎯</div>
+              <div class="tip-title">Búlgaro</div>
+              <p>Pé mais distante aumenta o viés no glúteo. Use isso a seu favor.</p>
+            </div>
+            <div class="tip reveal">
+              <div class="tip-icon">💧</div>
+              <div class="tip-title">Drop set</div>
+              <p>Use só na última da extensora para gerar estímulo extra sem exagerar na fadiga geral.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="day-panel" id="qui">
+        <div class="day-shell reveal">
+          <div class="day-header">
+            <div>
+              <div class="day-title upper">UPPER <em>COMPLETO</em></div>
+              <p class="day-subtitle">Peito, ombro, tríceps e core com volume mais inteligente e sem excesso.</p>
+            </div>
+            <div class="day-stats">
+              <div class="stat-box">
+                <div class="stat-num" data-target="28">28</div>
+                <div class="stat-label">Séries</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num">8–15</div>
+                <div class="stat-label">Rep range</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num">90s</div>
+                <div class="stat-label">Descanso</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block reveal">
+            <div class="block-label">Peito — Novo na Ficha</div>
+            <div class="exercise">
+              <div class="ex-name">Supino Inclinado com Halter <span class="ex-tag">principal</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">10–12</div>
+            </div>
+            <div class="exercise">
+              <div class="ex-name">Crucifixo Máquina (Peck Deck) <span class="ex-tag">estiramento</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">12–15</div>
+            </div>
+          </div>
+
+          <div class="block reveal">
+            <div class="block-label">Ombro — Volume Inteligente</div>
+            <div class="exercise">
+              <div class="ex-name">Desenvolvimento com Halter <span class="ex-tag">principal</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">8–10</div>
+            </div>
+            <div class="exercise">
+              <div class="ex-name">Elevação Lateral com Cabo <span class="ex-tag">deltóide medial</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">12–15</div>
+            </div>
+            <div class="exercise">
+              <div class="ex-name">Face Pull com Corda <span class="ex-tag">rotador + postura</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">15–20</div>
+            </div>
+          </div>
+
+          <div class="block reveal">
+            <div class="block-label">Tríceps</div>
+            <div class="exercise">
+              <div class="ex-name">Tríceps Testa com Barra W <span class="ex-tag">massa</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">10–12</div>
+            </div>
+            <div class="exercise">
+              <div class="ex-name">Tríceps Corda no Cabo <span class="ex-tag">volume</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">12–15</div>
+            </div>
+          </div>
+
+          <div class="block neutral reveal">
+            <div class="block-label">Core</div>
+            <div class="exercise neutral">
+              <div class="ex-name">Prancha Lateral <span class="ex-tag">oblíquo</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">30–40s</div>
+            </div>
+            <div class="exercise neutral">
+              <div class="ex-name">Abdominal Infra (Elevação de Pernas) <span class="ex-tag">core baixo</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">12–15</div>
+            </div>
+          </div>
+
+          <div class="tips-grid">
+            <div class="tip reveal">
+              <div class="tip-icon">💪</div>
+              <div class="tip-title">Peito incluído</div>
+              <p>Dois exercícios já fazem o trabalho sem roubar energia demais do resto da ficha.</p>
+            </div>
+            <div class="tip reveal">
+              <div class="tip-icon">✂️</div>
+              <div class="tip-title">Ombro simplificado</div>
+              <p>Menos redundância e mais qualidade de execução deixam o treino mais elegante.</p>
+            </div>
+            <div class="tip reveal">
+              <div class="tip-icon">🛡</div>
+              <div class="tip-title">Face Pull</div>
+              <p>Excelente para postura, manguito e saúde do ombro com esse volume de upper.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="day-panel" id="sex">
+        <div class="day-shell reveal">
+          <div class="day-header">
+            <div>
+              <div class="day-title pump">GLÚTEO <em>PUMP</em></div>
+              <p class="day-subtitle">Dia de contração máxima, pouco descanso e muito foco em sensação muscular.</p>
+            </div>
+            <div class="day-stats">
+              <div class="stat-box">
+                <div class="stat-num" style="color:var(--accent2)" data-target="22">22</div>
+                <div class="stat-label">Séries</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num" style="color:var(--accent2)">10–20</div>
+                <div class="stat-label">Rep range</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-num" style="color:var(--accent2)">60–90s</div>
+                <div class="stat-label">Descanso</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block pump reveal">
+            <div class="block-label">Glúteo — Contração Máxima</div>
+            <div class="exercise pump">
+              <div class="ex-name">Hip Thrust na Máquina ou Barra Leve <span class="ex-tag">principal</span> <span
+                  class="ex-note pink">segura 2s no topo</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">10–15</div>
+            </div>
+            <div class="exercise pump">
+              <div class="ex-name">Coice no Cabo <span class="ex-tag">isolamento</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">15–20</div>
+            </div>
+            <div class="exercise pump">
+              <div class="ex-name">Abdutora Leve <span class="ex-tag">glúteo médio</span> <span
+                  class="ex-note pink">segura 2s</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">20–25</div>
+            </div>
+          </div>
+
+          <div class="block pump reveal">
+            <div class="block-label">Posterior de Coxa</div>
+            <div class="exercise pump">
+              <div class="ex-name">Stiff com Halteres <span class="ex-tag">isquio + glúteo</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">12–15</div>
+            </div>
+            <div class="exercise pump">
+              <div class="ex-name">Mesa Flexora <span class="ex-tag">finalizador</span></div>
+              <div class="ex-sets">3 séries</div>
+              <div class="ex-reps">12–15</div>
+            </div>
+          </div>
+
+          <div class="block neutral reveal">
+            <div class="block-label">Panturrilha Sentado</div>
+            <div class="exercise neutral">
+              <div class="ex-name">Panturrilha Sentado (Sóleo) <span class="ex-tag">alta repetição</span></div>
+              <div class="ex-sets">4 séries</div>
+              <div class="ex-reps">15–20</div>
+            </div>
+          </div>
+
+          <div class="tips-grid">
+            <div class="tip reveal">
+              <div class="tip-icon">🍑</div>
+              <div class="tip-title">Dia de pump</div>
+              <p>Aqui a intenção não é recorde de carga, é qualidade de contração e densidade do treino.</p>
+            </div>
+            <div class="tip reveal">
+              <div class="tip-icon">🔄</div>
+              <div class="tip-title">Frog pump saiu</div>
+              <p>Coice no cabo entrega progressão mais controlável e estímulo melhor mensurável.</p>
+            </div>
+            <div class="tip reveal">
+              <div class="tip-icon">⏱</div>
+              <div class="tip-title">Descanso curto</div>
+              <p>Se o pump sumiu completamente, provavelmente a pausa passou do ponto.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="day-panel" id="fds">
+        <div class="day-shell reveal">
+          <div class="rest-panel">
+            <div class="rest-orb">🌸</div>
+            <div class="rest-title">FIM DE SEMANA</div>
+            <p class="rest-sub">Dois dias de descanso total. Sono, proteína, hidratação e recuperação fazem parte do
+              crescimento do glúteo tanto quanto o treino.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="overload-box reveal">
+        <div class="overload-header">SISTEMA DE PROGRESSÃO — DOUBLE PROGRESSION</div>
+        <div class="overload-body">
+          <div class="overload-item">
+            <div class="overload-num">1°</div>
+            <div class="overload-desc">Atinja o teto de reps em todas as séries por 2 semanas seguidas.</div>
+          </div>
+          <div class="overload-item">
+            <div class="overload-num">2°</div>
+            <div class="overload-desc">Hip thrust: +5 kg. Compostos: +2,5 kg. Isolamentos: +1 kg ou +1 série.</div>
+          </div>
+          <div class="overload-item">
+            <div class="overload-num">3°</div>
+            <div class="overload-desc">Volte ao piso de reps com a nova carga e repita o ciclo sem pressa.</div>
+          </div>
+          <div class="overload-item">
+            <div class="overload-num">4°</div>
+            <div class="overload-desc">A cada 8–10 semanas, faça um deload para reduzir fadiga e consolidar progresso.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer-love-wrap reveal">
+  <div class="footer-love-line"></div>
+  
+  <p class="footer-note footer-love-text">
+    <span id="typing-love"></span><span class="typing-caret"></span>
+  </p>
+
+  <p class="footer-subnote">feito com carinho, disciplina e propósito</p>
+</div>
+
+<style>
+.footer-love-wrap {
+  position: relative;
+  margin-top: 40px;
+  padding: 22px 18px 18px;
+  border: 1px solid rgba(200, 245, 66, 0.18);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top center, rgba(200, 245, 66, 0.08), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  overflow: hidden;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.02) inset,
+    0 8px 30px rgba(0,0,0,0.35);
+}
+
+.footer-love-line {
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c8f542, #f5a623, transparent);
+  filter: blur(0.5px);
+  animation: scanLine 4s linear infinite;
+  opacity: 0.95;
+}
+
+.footer-love-text {
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: 0.6px;
+  font-weight: 600;
+  min-height: 48px;
+  color: #f3f7da;
+  text-shadow: 0 0 8px rgba(200, 245, 66, 0.08);
+  transition: all 0.4s ease;
+}
+
+.footer-love-text.glow-finished {
+  animation: finalGlow 2.2s ease-in-out infinite alternate;
+}
+
+.footer-subnote {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.42);
+}
+
+.typing-caret {
+  display: inline-block;
+  width: 10px;
+  margin-left: 2px;
+  color: #c8f542;
+  animation: blinkCaret 0.8s infinite;
+}
+
+.love-heart {
+  display: inline-block;
+  margin-left: 6px;
+  animation: heartBeat 1.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(224, 64, 251, 0.28));
+}
+
+@keyframes blinkCaret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes scanLine {
+  0%   { left: -35%; }
+  100% { left: 105%; }
+}
+
+@keyframes finalGlow {
+  from {
+    text-shadow:
+      0 0 8px rgba(200, 245, 66, 0.15),
+      0 0 14px rgba(200, 245, 66, 0.08);
+  }
+  to {
+    text-shadow:
+      0 0 10px rgba(200, 245, 66, 0.35),
+      0 0 22px rgba(245, 166, 35, 0.18),
+      0 0 32px rgba(200, 245, 66, 0.12);
+  }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.18); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.16); }
+  60% { transform: scale(1); }
+}
+
+.footer-love-wrap.show-love {
+  animation: revealLove 1s ease both;
+}
+
+@keyframes revealLove {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-love-wrap {
+    padding: 18px 14px 16px;
+    border-radius: 16px;
+  }
+
+  .footer-love-text {
+    font-size: 13px;
+    min-height: 60px;
+  }
+
+  .footer-subnote {
+    font-size: 10px;
+    letter-spacing: 1.7px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const wrap = document.querySelector(".footer-love-wrap");
+  const target = document.getElementById("typing-love");
+  const caret = document.querySelector(".typing-caret");
+  const textContainer = document.querySelector(".footer-love-text");
+
+  const fullText = "Feito com amor para meu amor, pra quem faz minha vida melhor todos os dias";
+  let index = 0;
+  let started = false;
+
+  function typeText() {
+    if (index < fullText.length) {
+      target.innerHTML += fullText.charAt(index);
+      index++;
+      setTimeout(typeText, 34);
+    } else {
+      target.innerHTML += '<span class="love-heart">💜</span>';
+      textContainer.classList.add("glow-finished");
+      caret.style.display = "none";
+    }
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        wrap.classList.add("show-love");
+        setTimeout(typeText, 450);
+      }
+    });
+  }, { threshold: 0.45 });
+
+  observer.observe(wrap);
+});
+</script>
+
+<style>
+.gradient-text {
+  font-size: 14px;
+  font-weight: 500;
+  background: linear-gradient(270deg, #c8f542, #f5a623, #c8f542);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 6s ease infinite;
+  text-align: center;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</style>
+    </main>
+
+    <div class="ex-modal-overlay" id="exModal" role="dialog" aria-modal="true" aria-label="Detalhes do exercício">
+      <div class="ex-modal" id="exModalPanel">
+        <div class="ex-modal-handle"></div>
+        <button class="ex-modal-close" id="exModalClose" aria-label="Fechar">&#215;</button>
+        <div class="ex-modal-name" id="exModalName"></div>
+        <div class="ex-modal-muscles" id="exModalMuscles"></div>
+        <div class="ex-modal-section">
+          <div class="ex-section-title">Execução</div>
+          <div class="ex-cues" id="exModalCues"></div>
+        </div>
+        <div class="ex-modal-section">
+          <div class="ex-section-title">Erros comuns</div>
+          <div class="ex-mistakes" id="exModalMistakes"></div>
+        </div>
+        <div class="ex-modal-actions">
+          <a class="ex-yt-btn" id="exModalYT" href="#" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            Ver no YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.day-tab');
+    const panels = document.querySelectorAll('.day-panel');
+
+    function showDay(id) {
+      panels.forEach(panel => panel.classList.remove('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      const targetPanel = document.getElementById(id);
+      const targetTab = document.querySelector(`.day-tab[data-day="${id}"]`);
+
+      if (targetPanel && targetTab) {
+        targetPanel.classList.add('active');
+        targetTab.classList.add('active');
+        window.scrollTo({ top: document.querySelector('.content').offsetTop - 90, behavior: 'smooth' });
+        observeReveals(targetPanel);
+      }
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => showDay(tab.dataset.day));
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+    function observeReveals(scope = document) {
+      scope.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    }
+
+    observeReveals();
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.target, 10);
+        if (!target || el.dataset.animated === 'true') return;
+
+        el.dataset.animated = 'true';
+        let current = 0;
+        const duration = 900;
+        const start = performance.now();
+
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          current = Math.floor(progress * target);
+          el.textContent = current;
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target;
+        }
+
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.35 });
+
+    document.querySelectorAll('[data-target]').forEach(el => statObserver.observe(el));
+
+    document.addEventListener('mousemove', (e) => {
+      if (window.innerWidth <= 860) return;
+      const hero = document.querySelector('.hero');
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+      if (e.clientY < rect.bottom + 80) {
+        hero.style.transform = `translateY(0) rotateX(${(-y).toFixed(2)}deg) rotateY(${x.toFixed(2)}deg)`;
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      const hero = document.querySelector('.hero');
+      hero.style.transform = 'translateY(0) rotateX(0deg) rotateY(0deg)';
+    });
+
+    const EXERCISES = {
+      'Hip Thrust com Barra': {
+        muscles: ['Glúteo Máximo', 'Posterior de Coxa'],
+        secondary: ['Core', 'Adutores'],
+        cues: [
+          'Apoie a parte alta das costas no banco e deixe os pés na largura do quadril.',
+          'Suba empurrando pelo calcanhar até travar o quadril com contração real do glúteo.',
+          'Mantenha queixo levemente recolhido e costelas para baixo para não roubar com a lombar.',
+          'Segure 1 a 2 segundos no topo antes de descer controlando.'
+        ],
+        mistakes: [
+          'Hiperestender a lombar no topo em vez de terminar com o quadril.',
+          'Deixar os pés muito longe ou muito perto e perder alavanca do glúteo.',
+          'Descer rápido demais e perder tensão na fase mais importante.'
+        ],
+        ytQuery: 'hip thrust com barra tecnica gluteo'
+      },
+      'Glute Bridge na Máquina': {
+        muscles: ['Glúteo Máximo'],
+        secondary: ['Posterior de Coxa', 'Core'],
+        cues: [
+          'Ajuste a máquina para empurrar com o quadril sem perder contato das costas com o apoio.',
+          'Pés firmes, joelhos alinhados e pressão constante pelo calcanhar.',
+          'Suba até a extensão do quadril sem jogar o tronco para trás.',
+          'Faça a volta devagar mantendo o glúteo ativo o tempo inteiro.'
+        ],
+        mistakes: [
+          'Bater a carga no final da descida e zerar a tensão.',
+          'Subir com impulso do tronco em vez de extensão do quadril.',
+          'Abrir ou fechar demais os joelhos durante a repetição.'
+        ],
+        ytQuery: 'glute bridge maquina execucao gluteo'
+      },
+      'Abdutora com Carga Alta': {
+        muscles: ['Glúteo Médio', 'Glúteo Mínimo'],
+        secondary: ['Tensor da Fáscia Lata'],
+        cues: [
+          'Sente alto no banco e mantenha o tronco estável durante toda a abertura.',
+          'Empurre os joelhos para fora iniciando o movimento pelo quadril.',
+          'Controle a volta sem deixar os apoios fecharem de uma vez.',
+          'Use amplitude real e pause rápido na abertura máxima.'
+        ],
+        mistakes: [
+          'Jogar o corpo para ganhar alavanca e roubar com o embalo.',
+          'Fazer só meia amplitude e encurtar o trabalho do glúteo médio.',
+          'Relaxar totalmente na volta e perder a fase excêntrica.'
+        ],
+        ytQuery: 'cadeira abdutora tecnica gluteo medio'
+      },
+      'Levantamento Terra Sumô': {
+        muscles: ['Glúteo Máximo', 'Adutores', 'Posterior de Coxa'],
+        secondary: ['Quadríceps', 'Core'],
+        cues: [
+          'Abra a base, ponta dos pés levemente para fora e mãos dentro das pernas.',
+          'Trave abdômen e dorsal antes de tirar a barra do chão.',
+          'Empurre o chão e traga o quadril para a frente sem arredondar a coluna.',
+          'Finalize em pé sem exagerar a extensão lombar.'
+        ],
+        mistakes: [
+          'Puxar com a lombar antes de organizar o tronco.',
+          'Deixar os joelhos fecharem para dentro na subida.',
+          'Subir a barra longe do corpo e aumentar o torque desnecessariamente.'
+        ],
+        ytQuery: 'levantamento terra sumo tecnica'
+      },
+      'Stiff com Barra': {
+        muscles: ['Posterior de Coxa', 'Glúteo Máximo'],
+        secondary: ['Eretores da Coluna', 'Core'],
+        cues: [
+          'Segure a barra próxima ao corpo e mantenha joelhos só levemente flexionados.',
+          'Empurre o quadril para trás durante a descida sem perder coluna neutra.',
+          'Desça até sentir alongamento forte no posterior sem colapsar a lombar.',
+          'Suba contraindo glúteo e posterior, não puxando com as costas.'
+        ],
+        mistakes: [
+          'Transformar o stiff em agachamento dobrando demais os joelhos.',
+          'Arredondar a lombar para ganhar amplitude artificial.',
+          'Afastar a barra do corpo e sobrecarregar a cadeia posterior.'
+        ],
+        ytQuery: 'stiff com barra tecnica posterior'
+      },
+      'Mesa Flexora': {
+        muscles: ['Posterior de Coxa'],
+        secondary: ['Panturrilha'],
+        cues: [
+          'Ajuste o apoio para alinhar o eixo da máquina com o joelho.',
+          'Contraia o posterior levando o rolo sem tirar o quadril do banco.',
+          'Segure um instante na contração máxima.',
+          'Retorne controlando a carga até quase estender totalmente.'
+        ],
+        mistakes: [
+          'Levantar o quadril e usar compensação para terminar a repetição.',
+          'Bater a carga na volta e perder o excêntrico.',
+          'Usar amplitude curta demais por excesso de peso.'
+        ],
+        ytQuery: 'mesa flexora execucao tecnica'
+      },
+      'Prancha com Carga': {
+        muscles: ['Core', 'Reto Abdominal', 'Transverso do Abdome'],
+        secondary: ['Glúteo', 'Serrátil'],
+        cues: [
+          'Antebraços no chão, cotovelos abaixo dos ombros e corpo em linha reta.',
+          'Faça retroversão pélvica leve e aperte glúteos para travar a lombar.',
+          'Respire curto sem perder pressão abdominal.',
+          'Mantenha a carga estável nas costas sem deixar o quadril cair.'
+        ],
+        mistakes: [
+          'Subir demais o quadril e aliviar o trabalho do abdômen.',
+          'Deixar a lombar afundar e transformar a prancha em extensão.',
+          'Prender a respiração até perder o alinhamento.'
+        ],
+        ytQuery: 'prancha com carga tecnica core'
+      },
+      'Pulldown Pegada Larga': {
+        muscles: ['Grande Dorsal', 'Redondo Maior'],
+        secondary: ['Bíceps', 'Rombóides'],
+        cues: [
+          'Comece deprimindo as escápulas antes de dobrar os cotovelos.',
+          'Puxe a barra em direção ao alto do peito com tronco levemente inclinado.',
+          'Mantenha os cotovelos apontando para baixo durante a puxada.',
+          'Suba controlando até alongar bem o dorsal.'
+        ],
+        mistakes: [
+          'Puxar para trás da cabeça e piorar o encaixe do ombro.',
+          'Jogar o tronco para trás e transformar o exercício em remada.',
+          'Fazer metade da amplitude e perder o alongamento.'
+        ],
+        ytQuery: 'pulldown pegada larga tecnica costas'
+      },
+      'Pulldown Unilateral no Cabo': {
+        muscles: ['Grande Dorsal'],
+        secondary: ['Redondo Maior', 'Core'],
+        cues: [
+          'Ajuste a polia alta e segure firme para trabalhar um lado por vez.',
+          'Pense em levar o cotovelo ao quadril mantendo o ombro longe da orelha.',
+          'Deixe o dorsal alongar no topo sem girar o tronco.',
+          'Mantenha o abdômen travado para não compensar.'
+        ],
+        mistakes: [
+          'Rodar o corpo para roubar amplitude.',
+          'Puxar com o bíceps em vez de iniciar com a escápula.',
+          'Perder controle na subida e deixar a carga arrancar o braço.'
+        ],
+        ytQuery: 'pulldown unilateral cabo tecnica dorsal'
+      },
+      'Remada Curvada com Barra': {
+        muscles: ['Grande Dorsal', 'Trapézio Médio', 'Rombóides'],
+        secondary: ['Bíceps', 'Posterior de Ombro'],
+        cues: [
+          'Incline o tronco mantendo coluna neutra e abdômen firme.',
+          'Puxe a barra para a linha do umbigo ou costela baixa.',
+          'Conduza o movimento com cotovelos e retração escapular.',
+          'Desça controlando sem perder o ângulo do tronco.'
+        ],
+        mistakes: [
+          'Subir e descer o tronco a cada repetição para ganhar impulso.',
+          'Arredondar a lombar conforme a fadiga entra.',
+          'Puxar alto demais e jogar o estímulo para trapézio superior.'
+        ],
+        ytQuery: 'remada curvada barra tecnica'
+      },
+      'Remada Sentada no Cabo': {
+        muscles: ['Rombóides', 'Trapézio Médio', 'Grande Dorsal'],
+        secondary: ['Bíceps'],
+        cues: [
+          'Sente com peito aberto e joelhos levemente flexionados.',
+          'Puxe o triângulo ou pegador para o abdômen sem encolher os ombros.',
+          'Feche bem as escápulas no final da puxada.',
+          'Volte controlando e deixando as escápulas se abrirem.'
+        ],
+        mistakes: [
+          'Jogar o tronco para trás e transformar em balanço.',
+          'Encolher os ombros durante a puxada.',
+          'Parar antes do alongamento completo na volta.'
+        ],
+        ytQuery: 'remada sentada no cabo tecnica'
+      },
+      'Remada Unilateral com Halter': {
+        muscles: ['Grande Dorsal', 'Rombóides'],
+        secondary: ['Bíceps', 'Trapézio'],
+        cues: [
+          'Apoie mão e joelho no banco mantendo a coluna longa.',
+          'Puxe o halter em direção ao quadril com cotovelo perto do corpo.',
+          'Pause um instante no topo para terminar a escápula.',
+          'Desça até alongar o dorsal sem rodar o tronco.'
+        ],
+        mistakes: [
+          'Abrir o cotovelo e jogar o foco no ombro posterior.',
+          'Girar o corpo para facilitar a subida.',
+          'Encurtar a descida e perder amplitude.'
+        ],
+        ytQuery: 'remada unilateral com halter tecnica'
+      },
+      'Rosca Direta com Barra': {
+        muscles: ['Bíceps Braquial'],
+        secondary: ['Braquial', 'Braquiorradial'],
+        cues: [
+          'Cotovelos fixos ao lado do corpo e punhos neutros.',
+          'Suba a barra sem jogar os ombros para frente.',
+          'Contraia forte no topo sem perder o controle.',
+          'Desça lentamente para aproveitar o excêntrico.'
+        ],
+        mistakes: [
+          'Roubar com balanço de quadril e lombar.',
+          'Trazer os cotovelos para frente e aliviar o bíceps.',
+          'Despencar a barra na descida.'
+        ],
+        ytQuery: 'rosca direta com barra tecnica biceps'
+      },
+      'Rosca Martelo Alternada': {
+        muscles: ['Braquial', 'Braquiorradial'],
+        secondary: ['Bíceps Braquial'],
+        cues: [
+          'Mantenha pegada neutra do início ao fim.',
+          'Suba um braço por vez sem mexer o cotovelo para frente.',
+          'Deixe o punho firme e o ombro relaxado.',
+          'Controle a descida até quase estender completamente.'
+        ],
+        mistakes: [
+          'Girar o punho e descaracterizar a rosca martelo.',
+          'Usar balanço do tronco para iniciar a subida.',
+          'Encerrar a amplitude antes do alongamento.'
+        ],
+        ytQuery: 'rosca martelo alternada tecnica'
+      },
+      'Agachamento Livre com Barra': {
+        muscles: ['Quadríceps', 'Glúteo Máximo'],
+        secondary: ['Adutores', 'Core'],
+        cues: [
+          'Posicione os pés firmes no chão e crie pressão abdominal antes de descer.',
+          'Quebre joelhos e quadril ao mesmo tempo mantendo o peito organizado.',
+          'Desça até a profundidade que preserve coluna e joelhos alinhados.',
+          'Suba empurrando o chão sem deixar os joelhos colapsarem.'
+        ],
+        mistakes: [
+          'Perder tensão no core e dobrar o tronco em excesso.',
+          'Joelhos entrando para dentro na saída do buraco.',
+          'Cortar amplitude por pressa ou excesso de carga.'
+        ],
+        ytQuery: 'agachamento livre com barra tecnica'
+      },
+      'Leg Press (Pé Neutro)': {
+        muscles: ['Quadríceps', 'Glúteo Máximo'],
+        secondary: ['Posterior de Coxa'],
+        cues: [
+          'Pés na largura dos ombros em posição neutra na plataforma.',
+          'Desça controlando até o limite em que a lombar fique colada no banco.',
+          'Empurre a plataforma distribuindo força no pé inteiro.',
+          'Mantenha joelhos acompanhando a linha dos pés.'
+        ],
+        mistakes: [
+          'Soltar a lombar do banco para forçar amplitude.',
+          'Travar os joelhos com agressividade no topo.',
+          'Descer curto demais e perder trabalho efetivo do quadríceps.'
+        ],
+        ytQuery: 'leg press pe neutro tecnica'
+      },
+      'Cadeira Extensora': {
+        muscles: ['Quadríceps'],
+        secondary: [],
+        cues: [
+          'Ajuste o encosto e o rolo para o joelho alinhar com o eixo da máquina.',
+          'Suba estendendo os joelhos sem tirar o quadril do banco.',
+          'Segure um instante na contração máxima.',
+          'Retorne em 2 a 3 segundos sem perder tensão.'
+        ],
+        mistakes: [
+          'Balançar o tronco para completar as últimas repetições.',
+          'Bater a carga na descida e descansar entre reps.',
+          'Usar carga tão alta que encurte muito a amplitude.'
+        ],
+        ytQuery: 'cadeira extensora tecnica quadriceps'
+      },
+      'Agachamento Búlgaro com Barra': {
+        muscles: ['Quadríceps', 'Glúteo Máximo'],
+        secondary: ['Glúteo Médio', 'Core'],
+        cues: [
+          'Deixe o pé da frente distante o suficiente para descer com estabilidade.',
+          'Mantenha o tronco levemente inclinado se quiser mais glúteo.',
+          'Desça em linha reta até o joelho traseiro aproximar do chão.',
+          'Suba empurrando o solo com a perna da frente.'
+        ],
+        mistakes: [
+          'Apoiar força demais na perna de trás e aliviar a principal.',
+          'Encurtar a passada e jogar o joelho muito à frente.',
+          'Perder equilíbrio por falta de base e pressa.'
+        ],
+        ytQuery: 'agachamento bulgaro com barra tecnica'
+      },
+      'Coice no Cabo (Glúteo Máximo)': {
+        muscles: ['Glúteo Máximo'],
+        secondary: ['Posterior de Coxa'],
+        cues: [
+          'Incline o tronco levemente à frente e trave o abdômen.',
+          'Empurre a perna para trás e para cima com joelho levemente flexionado.',
+          'Pense em contrair o glúteo no final, não em balançar a perna.',
+          'Volte lentamente sem deixar a polia puxar de uma vez.'
+        ],
+        mistakes: [
+          'Arquear a lombar para aparentar mais amplitude.',
+          'Usar embalo do tronco para iniciar a repetição.',
+          'Abrir demais o quadril e tirar o foco do glúteo máximo.'
+        ],
+        ytQuery: 'coice no cabo gluteo maximo tecnica'
+      },
+      'Panturrilha em Pé (Carga Alta)': {
+        muscles: ['Gastrocnêmio'],
+        secondary: ['Sóleo'],
+        cues: [
+          'Apoie o antepé e deixe o calcanhar descer ao máximo com controle.',
+          'Suba empurrando o chão e terminando na ponta do pé.',
+          'Segure um instante na contração máxima.',
+          'Mantenha joelhos apenas destravados, sem rebolar o corpo.'
+        ],
+        mistakes: [
+          'Quicar na parte baixa e perder o trabalho muscular.',
+          'Usar amplitude parcial por excesso de carga.',
+          'Dobrar demais os joelhos e tirar foco do gastrocnêmio.'
+        ],
+        ytQuery: 'panturrilha em pe carga alta tecnica'
+      },
+      'Supino Inclinado com Halter': {
+        muscles: ['Peitoral Superior'],
+        secondary: ['Tríceps', 'Deltóide Anterior'],
+        cues: [
+          'Escápulas retraídas e pés firmes no chão antes de iniciar.',
+          'Desça os halteres em arco controlado para a linha superior do peito.',
+          'Mantenha punhos neutros e cotovelos em ângulo confortável.',
+          'Suba aproximando os halteres sem bater um no outro.'
+        ],
+        mistakes: [
+          'Perder a posição das escápulas e jogar o ombro para frente.',
+          'Abrir demais os cotovelos e piorar o encaixe do ombro.',
+          'Descer curto demais e perder o alongamento do peitoral.'
+        ],
+        ytQuery: 'supino inclinado com halter tecnica'
+      },
+      'Crucifixo Máquina (Peck Deck)': {
+        muscles: ['Peitoral Maior'],
+        secondary: ['Deltóide Anterior'],
+        cues: [
+          'Ajuste o banco para alinhar mãos ou antebraços à linha do peito.',
+          'Feche os braços abraçando o movimento com o peitoral.',
+          'Mantenha leve flexão dos cotovelos do início ao fim.',
+          'Retorne controlando até sentir alongamento sem perder a postura.'
+        ],
+        mistakes: [
+          'Empurrar com tríceps como se fosse supino.',
+          'Bater os braços no final e usar impulso.',
+          'Exagerar na abertura e forçar a frente do ombro.'
+        ],
+        ytQuery: 'peck deck crucifixo maquina tecnica'
+      },
+      'Desenvolvimento com Halter': {
+        muscles: ['Deltóide Anterior', 'Deltóide Lateral'],
+        secondary: ['Tríceps', 'Core'],
+        cues: [
+          'Sente ou fique em pé com abdômen firme e halteres na linha do ombro.',
+          'Empurre para cima mantendo antebraço alinhado sob a carga.',
+          'Suba sem encolher os ombros.',
+          'Desça controlado até posição forte para repetir.'
+        ],
+        mistakes: [
+          'Arquear demais a lombar para concluir as repetições.',
+          'Deixar os cotovelos muito atrás e forçar o ombro.',
+          'Bater os halteres no topo e perder controle.'
+        ],
+        ytQuery: 'desenvolvimento com halter tecnica ombro'
+      },
+      'Elevação Lateral com Cabo': {
+        muscles: ['Deltóide Lateral'],
+        secondary: ['Supraespinal'],
+        cues: [
+          'Comece com braço levemente à frente do tronco e cotovelo semi flexionado.',
+          'Eleve o braço até a linha do ombro guiando pelo cotovelo.',
+          'Mantenha punho neutro e ombro longe da orelha.',
+          'Desça devagar sem deixar a polia puxar o braço.'
+        ],
+        mistakes: [
+          'Subir com trapézio em vez de lateral.',
+          'Jogar o tronco para criar embalo.',
+          'Girar a mão como se fosse despejar água e irritar o ombro.'
+        ],
+        ytQuery: 'elevacao lateral com cabo tecnica'
+      },
+      'Face Pull com Corda': {
+        muscles: ['Deltóide Posterior', 'Trapézio Médio', 'Manguito Rotador'],
+        secondary: ['Rombóides'],
+        cues: [
+          'Puxe a corda em direção ao rosto com cotovelos altos.',
+          'Abra as mãos no final para incluir rotação externa.',
+          'Mantenha peito aberto e pescoço relaxado.',
+          'Retorne controlando sem perder a posição das escápulas.'
+        ],
+        mistakes: [
+          'Puxar para o peito e descaracterizar o ângulo do exercício.',
+          'Usar carga alta demais e perder a rotação externa.',
+          'Encolher os ombros durante todo o movimento.'
+        ],
+        ytQuery: 'face pull com corda tecnica'
+      },
+      'Tríceps Testa com Barra W': {
+        muscles: ['Tríceps'],
+        secondary: ['Ancôneo'],
+        cues: [
+          'Mantenha braços estáveis apontando para o teto.',
+          'Flexione os cotovelos trazendo a barra na direção da testa ou atrás dela.',
+          'Evite abrir demais os cotovelos durante a descida.',
+          'Estenda de volta focando em empurrar com o tríceps.'
+        ],
+        mistakes: [
+          'Mover o ombro inteiro e transformar em pullover.',
+          'Abrir muito os cotovelos e irritar a articulação.',
+          'Descer rápido demais sem controle.'
+        ],
+        ytQuery: 'triceps testa barra w tecnica'
+      },
+      'Tríceps Corda no Cabo': {
+        muscles: ['Tríceps'],
+        secondary: ['Core'],
+        cues: [
+          'Cotovelos colados ao tronco e peito aberto.',
+          'Empurre a corda para baixo separando as pontas no final.',
+          'Segure a extensão por um instante para terminar o tríceps.',
+          'Retorne até alongar sem deixar o ombro participar.'
+        ],
+        mistakes: [
+          'Trazer os cotovelos para frente a cada repetição.',
+          'Usar tronco e balanço para vencer a carga.',
+          'Parar a subida cedo e perder o alongamento.'
+        ],
+        ytQuery: 'triceps corda no cabo tecnica'
+      },
+      'Prancha Lateral': {
+        muscles: ['Oblíquos', 'Core', 'Glúteo Médio'],
+        secondary: ['Quadrado Lombar'],
+        cues: [
+          'Apoie o antebraço abaixo do ombro e alinhe o corpo de lado.',
+          'Eleve o quadril formando uma linha da cabeça aos pés.',
+          'Mantenha glúteo e abdômen ativos sem girar o tronco.',
+          'Respire curto preservando a postura.'
+        ],
+        mistakes: [
+          'Deixar o quadril cair e sobrecarregar a lombar.',
+          'Rodar o tronco para frente ou para trás.',
+          'Apoiar peso demais no ombro por falta de alinhamento.'
+        ],
+        ytQuery: 'prancha lateral tecnica obliquos'
+      },
+      'Abdominal Infra (Elevação de Pernas)': {
+        muscles: ['Reto Abdominal', 'Flexores do Quadril'],
+        secondary: ['Oblíquos'],
+        cues: [
+          'Comece com lombar apoiada e pelve levemente em retroversão.',
+          'Eleve as pernas ou joelhos sem usar embalo.',
+          'No topo, pense em enrolar a pelve para acentuar o abdômen.',
+          'Desça devagar sem perder o controle da lombar.'
+        ],
+        mistakes: [
+          'Balançar as pernas para ganhar impulso.',
+          'Deixar a lombar arquear na descida.',
+          'Subir só com flexor do quadril e sem enrolar a pelve.'
+        ],
+        ytQuery: 'abdominal infra elevacao de pernas tecnica'
+      },
+      'Hip Thrust na Máquina ou Barra Leve': {
+        muscles: ['Glúteo Máximo'],
+        secondary: ['Posterior de Coxa'],
+        cues: [
+          'Organize o setup para conseguir contração máxima com conforto no quadril.',
+          'Faça a subida forte e pause 2 segundos no topo como a ficha pede.',
+          'Mantenha costelas baixas e olhar à frente.',
+          'Desça sob controle sem deixar a tensão desaparecer.'
+        ],
+        mistakes: [
+          'Acelerar demais o ritmo e perder o pump do exercício.',
+          'Transformar a pausa em descanso relaxando o quadril.',
+          'Arquear a lombar para parecer que subiu mais.'
+        ],
+        ytQuery: 'hip thrust maquina tecnica gluteo'
+      },
+      'Coice no Cabo': {
+        muscles: ['Glúteo Máximo'],
+        secondary: ['Glúteo Médio'],
+        cues: [
+          'Incline um pouco o tronco e mantenha o abdômen travado.',
+          'Empurre a perna para trás com controle e sem girar o quadril.',
+          'Contraia o glúteo no final do movimento.',
+          'Volte devagar para manter o pump constante.'
+        ],
+        mistakes: [
+          'Usar muita carga e perder a linha do movimento.',
+          'Balançar o corpo para ganhar impulso.',
+          'Abrir o quadril e tirar o foco do glúteo.'
+        ],
+        ytQuery: 'coice no cabo gluteo tecnica'
+      },
+      'Abdutora Leve': {
+        muscles: ['Glúteo Médio'],
+        secondary: ['Glúteo Mínimo'],
+        cues: [
+          'Use ritmo contínuo e foco na contração, não em carga alta.',
+          'Abra os joelhos até onde consiga manter o quadril estável.',
+          'Segure 1 a 2 segundos na abertura máxima.',
+          'Volte devagar sem encostar totalmente.'
+        ],
+        mistakes: [
+          'Bater repetições rápidas e perder o controle.',
+          'Jogar o tronco para trás para aumentar amplitude.',
+          'Fechar tudo na volta e zerar a tensão.'
+        ],
+        ytQuery: 'abdutora leve tecnica gluteo medio'
+      },
+      'Stiff com Halteres': {
+        muscles: ['Posterior de Coxa', 'Glúteo Máximo'],
+        secondary: ['Eretores da Coluna'],
+        cues: [
+          'Deixe os halteres próximos às pernas durante toda a descida.',
+          'Empurre o quadril para trás com joelhos pouco flexionados.',
+          'Alongue o posterior mantendo peito aberto e coluna neutra.',
+          'Suba trazendo o quadril para a frente e contraindo glúteos.'
+        ],
+        mistakes: [
+          'Afastar os halteres do corpo e sobrecarregar lombar.',
+          'Dobrar demais os joelhos e descaracterizar o hinge.',
+          'Roubar com a lombar no final da subida.'
+        ],
+        ytQuery: 'stiff com halteres tecnica'
+      },
+      'Panturrilha Sentado (Sóleo)': {
+        muscles: ['Sóleo'],
+        secondary: ['Gastrocnêmio'],
+        cues: [
+          'Mantenha joelhos dobrados e antepé bem apoiado.',
+          'Desça o calcanhar até sentir alongamento completo da panturrilha.',
+          'Suba o máximo possível e segure um instante no topo.',
+          'Trabalhe com ritmo controlado, principalmente na descida.'
+        ],
+        mistakes: [
+          'Quicar no fundo e usar só elasticidade.',
+          'Fazer amplitude curta por excesso de carga.',
+          'Acelerar demais a execução e perder tensão no sóleo.'
+        ],
+        ytQuery: 'panturrilha sentado soleo tecnica'
+      }
+    };
+
+    const exModalOverlay = document.getElementById('exModal');
+    const exModalClose = document.getElementById('exModalClose');
+    const exModalName = document.getElementById('exModalName');
+    const exModalMuscles = document.getElementById('exModalMuscles');
+    const exModalCues = document.getElementById('exModalCues');
+    const exModalMistakes = document.getElementById('exModalMistakes');
+    const exModalYT = document.getElementById('exModalYT');
+    let lastExerciseTrigger = null;
+
+    function getExerciseName(exerciseEl) {
+      const nameEl = exerciseEl.querySelector('.ex-name');
+      if (!nameEl) return '';
+      return [...nameEl.childNodes]
+        .filter(node => node.nodeType === Node.TEXT_NODE)
+        .map(node => node.textContent.trim())
+        .join(' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function getExerciseModalTone(exerciseEl) {
+      if (exerciseEl.classList.contains('pump') || exerciseEl.classList.contains('costas')) return 'accent2';
+      if (exerciseEl.classList.contains('quad')) return 'accent3';
+      if (exerciseEl.classList.contains('neutral')) return 'neutral';
+      return 'accent';
+    }
+
+    function openExModal(exerciseEl, data) {
+      const name = getExerciseName(exerciseEl);
+      if (!name || !data) return;
+
+      lastExerciseTrigger = exerciseEl;
+      exModalName.textContent = name;
+      exModalName.className = `ex-modal-name ${getExerciseModalTone(exerciseEl)}`;
+      exModalMuscles.innerHTML =
+        data.muscles.map(muscle => `<span class="ex-muscle-tag">${muscle}</span>`).join('') +
+        (data.secondary || []).map(muscle => `<span class="ex-muscle-tag secondary">${muscle}</span>`).join('');
+      exModalCues.innerHTML = data.cues.map((cue, index) =>
+        `<div class="ex-cue"><span class="ex-cue-num">${index + 1}</span><span>${cue}</span></div>`
+      ).join('');
+      exModalMistakes.innerHTML = data.mistakes.map(mistake =>
+        `<div class="ex-mistake"><span>${mistake}</span></div>`
+      ).join('');
+      exModalYT.href = `https://www.youtube.com/results?search_query=${encodeURIComponent(data.ytQuery || name)}`;
+
+      exModalOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('exModalPanel').scrollTop = 0;
+    }
+
+    function closeExModal() {
+      exModalOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+      if (lastExerciseTrigger) lastExerciseTrigger.focus();
+    }
+
+    document.querySelectorAll('.exercise').forEach(exerciseEl => {
+      const name = getExerciseName(exerciseEl);
+      const data = EXERCISES[name];
+      if (!data) return;
+
+      exerciseEl.setAttribute('role', 'button');
+      exerciseEl.setAttribute('tabindex', '0');
+      exerciseEl.setAttribute('aria-label', `Abrir detalhes de ${name}`);
+
+      exerciseEl.addEventListener('click', () => openExModal(exerciseEl, data));
+      exerciseEl.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        openExModal(exerciseEl, data);
+      });
+    });
+
+    exModalClose.addEventListener('click', closeExModal);
+    exModalOverlay.addEventListener('click', event => {
+      if (event.target === exModalOverlay) closeExModal();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && exModalOverlay.classList.contains('open')) {
+        closeExModal();
+      }
+    });
+
+    const bootSplash = document.getElementById('bootSplash');
+    const hideBootSplash = () => {
+      if (!bootSplash || bootSplash.classList.contains('is-hidden')) return;
+      bootSplash.classList.add('is-hidden');
+      document.body.classList.remove('is-booting');
+    };
+
+    window.addEventListener('load', () => {
+      window.setTimeout(hideBootSplash, 550);
+    });
+
+    window.setTimeout(hideBootSplash, 2200);
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(err => {
+          console.error('Falha ao registrar service worker:', err);
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
